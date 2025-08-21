@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-v16ul!7sl_2s@e--e$-^gm1w=118_l*0+q7-^m$a#i1)i=26y^
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "https://daily-quote-jn3w.onrender.com/",
+    'daily-quote-jn3w.onrender.com',
     "127.0.0.1",  
     "localhost",
 ]
