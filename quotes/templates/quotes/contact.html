@@ -1,0 +1,47 @@
+{% extends "quotes/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="fw-bold text-success mb-4">Contact Us</h2>
+      <p class="lead">We’d love to hear from you! 💌</p>
+      <p>If you have feedback, suggestions, or want to collaborate, feel free to reach out. Your thoughts matter to us.</p>
+
+      <ul class="list-unstyled">
+        <li><strong>Email:</strong> dailyquotes@example.com</li>
+        <li><strong>Phone:</strong> +91 98765 43210</li>
+        <li><strong>Address:</strong> Chennai, India</li>
+      </ul>
+    </div>
+
+    <div class="col-md-6">
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {% endfor %}
+      {% endif %}
+
+      <form method="POST" class="p-4 border rounded shadow-sm bg-light">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label class="form-label">Name</label>
+          <input type="text" name="name" class="form-control" placeholder="Enter your name" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Message</label>
+          <textarea name="message" class="form-control" rows="4" placeholder="Type your message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success w-100">Send Message</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
